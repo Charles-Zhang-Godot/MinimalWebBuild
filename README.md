@@ -18,14 +18,21 @@ To update from upstream (pull latest features), do ...
 
 ## Stats
 
+Notice most of earlier build stats are from `master` branch which is simply not what we should be using (we were expecting `4.2`). In general, making a custom build through configuration changes is quite straightforward, while every time we change target it requires rebuilding everything, it's fairly fast for v4.2.
+
 |Build Config/Measure|Config|Build Size|Build Time|Comment|
 |-|-|-|-|-|
 |Win32 x64 Editor|`scons`|120Mb|7min38s||
 |Win32 x32 Export Template|`scons platform=windows target=template_release arch=x86_32`|52Mb|5min49s||
 |Win32 x64 Optimized Export Template|` scons platform=windows target=template_release arch=x86_64 lto=full optimize=size module_text_server_adv_enabled=no module_text_server_fb_enabled=yes module_basis_universal_enabled=no module_bmp_enabled=no module_camera_enabled=no module_csg_enabled=no module_dds_enabled=no module_enet_enabled=no module_gridmap_enabled=no module_hdr_enabled=no module_jsonrpc_enabled=no module_ktx_enabled=no module_mbedtls_enabled=no module_meshoptimizer_enabled=no module_minimp3_enabled=no module_mobile_vr_enabled=no module_msdfgen_enabled=no module_multiplayer_enabled=no module_noise_enabled=no module_navigation_enabled=no module_ogg_enabled=no module_openxr_enabled=no module_raycast_enabled=no module_regex_enabled=no module_squish_enabled=no module_svg_enabled=no module_tga_enabled=no module_theora_enabled=no module_tinyexr_enabled=no module_upnp_enabled=no module_vhacd_enabled=no module_vorbis_enabled=no module_webrtc_enabled=no module_websocket_enabled=no module_webxr_enabled=no module_zip_enabled=no`|45.86Mb|9min22s||
 |Minimal Web Export Template|`scons platform=web target=template_release`|45Mb|3min27s||
-|Minimal Web Export Template Optimized|`scons platform=web target=template_release optimize=size module_text_server_adv_enabled=no module_text_server_fb_enabled=yes module_basis_universal_enabled=no module_bmp_enabled=no module_camera_enabled=no module_csg_enabled=no module_dds_enabled=no module_enet_enabled=no module_gridmap_enabled=no module_hdr_enabled=no module_jsonrpc_enabled=no module_ktx_enabled=no module_mbedtls_enabled=no module_meshoptimizer_enabled=no module_minimp3_enabled=no module_mobile_vr_enabled=no module_msdfgen_enabled=no module_multiplayer_enabled=no module_noise_enabled=no module_navigation_enabled=no module_ogg_enabled=no module_openxr_enabled=no module_raycast_enabled=no module_regex_enabled=no module_squish_enabled=no module_svg_enabled=no module_tga_enabled=no module_theora_enabled=no module_tinyexr_enabled=no module_upnp_enabled=no module_vhacd_enabled=no module_vorbis_enabled=no module_webrtc_enabled=no module_websocket_enabled=no module_webxr_enabled=no module_zip_enabled=no disable_advanced_gui=yes disable_3d=yes`|||Notice we had `disable_advanced_gui=yes disable_3d=yes`|
+|Minimal Web Export Template Optimized|`scons platform=web target=template_release optimize=size module_text_server_adv_enabled=no module_text_server_fb_enabled=yes module_basis_universal_enabled=no module_bmp_enabled=no module_camera_enabled=no module_csg_enabled=no module_dds_enabled=no module_enet_enabled=no module_gridmap_enabled=no module_hdr_enabled=no module_jsonrpc_enabled=no module_ktx_enabled=no module_mbedtls_enabled=no module_meshoptimizer_enabled=no module_minimp3_enabled=no module_mobile_vr_enabled=no module_msdfgen_enabled=no module_multiplayer_enabled=no module_noise_enabled=no module_navigation_enabled=no module_ogg_enabled=no module_openxr_enabled=no module_raycast_enabled=no module_regex_enabled=no module_squish_enabled=no module_svg_enabled=no module_tga_enabled=no module_theora_enabled=no module_tinyexr_enabled=no module_upnp_enabled=no module_vhacd_enabled=no module_vorbis_enabled=no module_webrtc_enabled=no module_websocket_enabled=no module_webxr_enabled=no module_zip_enabled=no disable_advanced_gui=yes disable_3d=yes`|25.63Mb|2min|Notice we had `disable_advanced_gui=yes disable_3d=yes`; Do `$env:PATH = "$env:PATH;C:\Applications\emsdk\upstream\emscripten"` otherwise `web` platform will be marked as invalid|
 |Minimal Web Editor|PENDING||||
+|Win64 Editor v4.2 Build|(4.2)`scons`|101Mb|5min28s|
+
+(We might still be able to disable audio engine and physics engine)
+
+Notice we can still use the official editor for editing scenes even when using custom export templates (that may or may not have all supported engine features).
 
 ## TODO
 

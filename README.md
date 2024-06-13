@@ -16,16 +16,37 @@ To update from upstream (pull latest features), do ...
 
 (Might want to keep this README).
 
+## Stats
+
+|Build Config/Measure|Config|Build Size|Build Time|Comment|
+|-|-|-|-|-|
+|Win32 x64 Editor|`scons`|120Mb|7min38s||
+|Win32 x32 Export Template|`scons platform=windows target=template_release arch=x86_32`|52Mb|5min49s||
+|Win32 x64 Optimized Export Template|` scons platform=windows target=template_release arch=x86_64 lto=full optimize=size module_text_server_adv_enabled=no module_text_server_fb_enabled=yes module_basis_universal_enabled=no module_bmp_enabled=no module_camera_enabled=no module_csg_enabled=no module_dds_enabled=no module_enet_enabled=no module_gridmap_enabled=no module_hdr_enabled=no module_jsonrpc_enabled=no module_ktx_enabled=no module_mbedtls_enabled=no module_meshoptimizer_enabled=no module_minimp3_enabled=no module_mobile_vr_enabled=no module_msdfgen_enabled=no module_multiplayer_enabled=no module_noise_enabled=no module_navigation_enabled=no module_ogg_enabled=no module_openxr_enabled=no module_raycast_enabled=no module_regex_enabled=no module_squish_enabled=no module_svg_enabled=no module_tga_enabled=no module_theora_enabled=no module_tinyexr_enabled=no module_upnp_enabled=no module_vhacd_enabled=no module_vorbis_enabled=no module_webrtc_enabled=no module_websocket_enabled=no module_webxr_enabled=no module_zip_enabled=no`|45.86Mb|9min22s||
+|Minimal Web Export Template|`scons platform=web target=template_release`|45Mb|3min27s||
+|Minimal Web Export Template Optimized|`scons platform=web target=template_release optimize=size module_text_server_adv_enabled=no module_text_server_fb_enabled=yes module_basis_universal_enabled=no module_bmp_enabled=no module_camera_enabled=no module_csg_enabled=no module_dds_enabled=no module_enet_enabled=no module_gridmap_enabled=no module_hdr_enabled=no module_jsonrpc_enabled=no module_ktx_enabled=no module_mbedtls_enabled=no module_meshoptimizer_enabled=no module_minimp3_enabled=no module_mobile_vr_enabled=no module_msdfgen_enabled=no module_multiplayer_enabled=no module_noise_enabled=no module_navigation_enabled=no module_ogg_enabled=no module_openxr_enabled=no module_raycast_enabled=no module_regex_enabled=no module_squish_enabled=no module_svg_enabled=no module_tga_enabled=no module_theora_enabled=no module_tinyexr_enabled=no module_upnp_enabled=no module_vhacd_enabled=no module_vorbis_enabled=no module_webrtc_enabled=no module_websocket_enabled=no module_webxr_enabled=no module_zip_enabled=no disable_advanced_gui=yes disable_3d=yes`|||Notice we had `disable_advanced_gui=yes disable_3d=yes`|
+|Minimal Web Editor|PENDING||||
+
 ## TODO
 
+- [ ] Figure out how to install Emscripten
+    * Hard to compile from source
+    * Same error with `choco install emscripten` (Per https://emscripten.org/docs/getting_started/downloads.html)
 - [ ] Make web build template
 - [ ] Make web build editor
 - [ ] Provide scripts for generate required editor and export template files
 - [ ] Demonstrate minimal web build size
 
+## Troubleshooting
+
+Notice we should NOT use `master` branch for web builds per https://github.com/godotengine/godot/issues/56932.
+
 ## References
 
-PENDING.
+Build guides:
+
+* https://docs.godotengine.org/en/stable/contributing/development/compiling/compiling_for_windows.html: Including basic build and export template build.
+* https://docs.godotengine.org/en/stable/contributing/development/compiling/compiling_for_web.html
 
 Official build optimization guide:
 

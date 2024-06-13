@@ -26,3 +26,15 @@ To update from upstream (pull latest features), do ...
 ## References
 
 PENDING.
+
+Official build optimization guide:
+
+* https://docs.godotengine.org/en/stable/contributing/development/compiling/optimizing_for_size.html
+
+Build optimization discussion:
+
+* https://forum.godotengine.org/t/how-do-i-reduce-the-size-of-my-web-builds/21013
+* https://www.reddit.com/r/godot/comments/8b67lb/guide_how_to_compress_wasmpck_file_to_make_html5/
+* https://www.reddit.com/r/godot/comments/a3t8t4/how_low_can_godot_go/
+
+Can we go as low as <5Mb?
